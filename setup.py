@@ -10,7 +10,7 @@ setup(
     author='Igor Kalnitsky <igor@kalnitsky.org>',
     packages=['xsnippet_cli'],
     description='A simple command line interface for the XSnippet service.',
-    #long_description=open('README.rst').read(),
+    long_description=open('README.rst').read(),
     license='BSD License',
     entry_points={
         'console_scripts': ['xsnippet = xsnippet_cli:main'],

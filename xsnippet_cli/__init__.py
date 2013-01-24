@@ -36,7 +36,7 @@ from pygments.lexers import get_lexer_for_filename
 from xsnippet_cli import api
 
 
-__version__ = 'dev'
+__version__ = '0.1.0'
 
 
 def main():
