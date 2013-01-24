@@ -1,0 +1,10 @@
+# temp python files
+*.pyc
+
+# virtualenv
+venv/
+
+# setuptools temp files
+build/
+dist/
+*.egg-info/
