@@ -13,7 +13,7 @@ setup(
     long_description=open('README.rst').read(),
     license='BSD License',
     entry_points={
-        'console_scripts': ['xsnippet = xsnippet_cli:main'],
+        'console_scripts': ['xsnippet = xsnippet_cli.cli:main'],
     },
     install_requires=[
         'Pygments>=1.5',
