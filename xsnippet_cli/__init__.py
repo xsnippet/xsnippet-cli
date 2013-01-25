@@ -3,25 +3,32 @@
     xsnippet_cli
     ~~~~~~~~~~~~
 
-    XSnippet CLI is a simple command line interface for interacting
-    with XSnippet service. Currently, it provides only posting and
-    receiving snippets as a Guest user.
+    **xsnippet-cli** is a simple command line interface for interacting with
+    Xsnippet_ service. By means this script, you can easily post and receive
+    Snippets directly from your terminal.
 
-    You can send a file in the following way::
+
+    Usage
+    -----
+
+    It's very easy to use. You can paste the snippet this way ::
 
         $ xsnippet /path/to/file
 
-    For sending a some command output, you can use a unix pipe system::
+    Or this way ::
 
-        $ ls -la | xsnippet
+        $ cat /path/to/file | xsnippet
 
-    If you want to retrieve a some snippet from the server, just do the
-    following command::
+    As you can see the last method posts a some command output. It's very
+    usefull To post the last few lines from logfile this way ::
 
-        $ xsnippet -r <snippet id>
+        $ tail -n 5 nginx.log | xsnippet
 
-    The script provides a some useful options such as tags or language.
-    Use ``$ xsnippet --help`` for more details.
+    It's important to note that you can specify a snippet language or tags.
+    Thats can be done by the following command ::
+
+        $ cat setup.py | xsnippet -l python -t setuptools test
+
 
     :copyright: (c) 2013 by Igor Kalnitsky.
     :license: BSD, see LICENSE for more details.
