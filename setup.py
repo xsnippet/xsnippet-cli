@@ -7,11 +7,12 @@ from xsnippet_cli import __version__ as version
 setup(
     name='xsnippet-cli',
     version=version,
-    author='Igor Kalnitsky <igor@kalnitsky.org>',
-    packages=['xsnippet_cli'],
+    author='Igor Kalnitsky',
+    author_email='igor@kalnitsky.org',
     description='A simple command line interface for the XSnippet service.',
     long_description=open('README.rst').read(),
     license='BSD License',
+    packages=['xsnippet_cli'],
     entry_points={
         'console_scripts': ['xsnippet = xsnippet_cli.cli:main'],
     },
@@ -28,4 +29,5 @@ setup(
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
     ],
+    url='https://github.com/xsnippet/xsnippet-cli',
 )
