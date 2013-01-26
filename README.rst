@@ -27,6 +27,9 @@ Thats can be done by the following command ::
 
     $ cat setup.py | xsnippet -l python -t setuptools test
 
+If you want to receive snippet just do the following command ::
+
+    $ xsnippet -r snippet_id
 
 Installation
 ------------
