@@ -33,13 +33,13 @@ Installation
 
 ::
 
-    $ pip install xsnippet-cli
+    $ (sudo) pip install xsnippet-cli
 
 or
 
 ::
 
-    $ easy_install xsnippet-cli
+    $ (sudo) easy_install xsnippet-cli
 
 or
 
