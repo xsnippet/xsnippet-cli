@@ -55,10 +55,8 @@ def post_snippet(content, title=None, language=None, tags=None, _api=None):
         Send snippet with a given parameters to the service.
         Return url to the posted snippet if success; otherwise return None.
     """
-    # the content should be not empty
-    assert content
-    # the api url should be defined
-    assert _api
+    assert content, 'the `content` should be not empty'
+    assert _api, 'the api url should be defined'
 
     # make data dict
     data = {
@@ -84,4 +82,12 @@ def post_snippet(content, title=None, language=None, tags=None, _api=None):
 
 @api('/snippets/{id}')
 def get_snippet(id_, _api=None):
-    pass
+    assert _api, 'the api url should be defined'
+
+    try:
+        # get snippet and return dict with it attributes
+        response = urlopen(_api.format(id=id_)).read()
+        return json.loads(response.decode('utf-8'))
+    except:
+        # return None if something wrong
+        return None

@@ -15,7 +15,10 @@ import os
 import sys
 import argparse
 
-from pygments.lexers import get_lexer_for_filename
+from pygments import highlight
+from pygments.lexers import get_lexer_for_filename, get_lexer_by_name
+from pygments.formatters import Terminal256Formatter
+
 from xsnippet_cli import api
 
 
@@ -31,7 +34,7 @@ def main():
     return _post_snippet(args.filename, args.caption, args.language, args.tags)
 
 
-def _receive_snippet(snippet_id, _info=True):
+def _receive_snippet(snippet_id, _info=False):
     """
         Retrieve from the server a snippet with a given id
         and print it to ``stdout``.
@@ -41,11 +44,18 @@ def _receive_snippet(snippet_id, _info=True):
     """
     snippet = api.get_snippet(snippet_id)
 
+    if snippet is None:
+        return
+
     for key, value in snippet.items():
         if _info and value and key != 'content':
             print(':{key}: {value}'.format(key=key, value=value))
 
-    print(snippet['content'])
+    print(highlight(
+        snippet['content'],
+        get_lexer_by_name(snippet['language']),
+        Terminal256Formatter(style='monokai')
+    ))
 
 
 def _post_snippet(filename=None, caption=None, language=None, tags=None):
